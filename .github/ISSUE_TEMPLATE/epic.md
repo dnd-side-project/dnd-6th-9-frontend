@@ -1,7 +1,7 @@
 ---
 name: EPIC
 about: 최종 목표를 명시하는 Template (스프린트, 배포)
-title: ''
+title: "[options] 내용"
 labels: ''
 assignees: ''
 

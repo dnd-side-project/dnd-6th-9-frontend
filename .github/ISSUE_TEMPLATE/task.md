@@ -1,7 +1,7 @@
 ---
 name: TASK
 about: STORY(중간 목표) 완성을 위한 최소 단위 작업
-title: ''
+title: "[options] 내용"
 labels: ''
 assignees: ''
 
