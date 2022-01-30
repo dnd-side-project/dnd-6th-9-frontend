@@ -1,7 +1,12 @@
 import React from 'react';
+import Router from './router';
 
 const App = () => {
-  return <>리액트 보일러플레이트</>;
+  return (
+    <>
+      <Router />
+    </>
+  );
 };
 
 export default App;
