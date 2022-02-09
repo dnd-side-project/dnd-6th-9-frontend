@@ -1,4 +1,4 @@
-import { css } from 'emotion/react';
+import { css } from '@emotion/react';
 const getFontWeight = (weight) => {
   // 400 - R(regular), 500: M(Medium), 600: SB(semi bold), 700 : B(bold)
   switch (weight) {
