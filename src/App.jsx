@@ -1,12 +1,14 @@
 import React from 'react';
-import { Global } from '@emotion/react';
-import { globalStyle } from '@styles';
+import { Global, ThemeProvider } from '@emotion/react';
+import { globalStyle, theme } from '@styles';
 import Router from '@router';
 const App = () => {
   return (
     <>
-      <Global styles={globalStyle} />
-      <Router />
+      <ThemeProvider theme={theme['light']}>
+        <Global styles={globalStyle} />
+        <Router />
+      </ThemeProvider>
     </>
   );
 };
