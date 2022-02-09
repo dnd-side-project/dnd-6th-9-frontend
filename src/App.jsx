@@ -1,8 +1,11 @@
 import React from 'react';
-import Router from './router';
+import { Global } from '@emotion/core';
+import { globalStyle } from '@styles';
+import Router from '@router';
 const App = () => {
   return (
     <>
+      <Global styles={globalStyle} />
       <Router />
     </>
   );
