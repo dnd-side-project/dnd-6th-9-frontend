@@ -5,11 +5,11 @@ const GlobalStyle = css`
   ${emotionReset};
   html,
   body {
+    background-color: ${({ theme }) => theme.colors.bgColor};
     max-width: 414px;
     height: 100%;
     margin: 0 auto;
   }
-
   * {
     box-sizing: border-box;
   }
