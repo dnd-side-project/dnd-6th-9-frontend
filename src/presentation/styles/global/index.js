@@ -1,10 +1,9 @@
-import emotionReset from 'emotion-reset';
 import { css } from '@emotion/react';
 
 const GlobalStyle = css`
-  ${emotionReset};
   html,
-  body {
+  body,
+  #root {
     background-color: ${({ theme }) => theme.colors.bgColor};
     max-width: 414px;
     height: 100%;
@@ -22,6 +21,7 @@ const GlobalStyle = css`
     padding: 0;
   }
   input {
+    box-sizing: border-box;
     -webkit-appearance: none;
     -webkit-border-radius: 0;
   }
