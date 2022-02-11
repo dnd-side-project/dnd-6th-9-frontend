@@ -15,6 +15,15 @@ export const common = {
     justify-content: center;
     align-items: center;
   `,
+  HeaderFixedPosition: css`
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+  `,
+  HeaderInMainPosition: css`
+    padding-top: 40px;
+  `,
 };
 
 export const light = {
