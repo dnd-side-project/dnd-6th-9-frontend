@@ -1,34 +1,45 @@
+import { Global, ThemeProvider } from '@emotion/react';
+import { globalStyles, theme } from '@styles';
 const customViewports = {
-    mobile360: {
-      name: 'Mobile 360px',
-      styles: {
-        width: '360px',
-        height: '640px'
-      }
+  mobile360: {
+    name: 'Mobile 360px',
+    styles: {
+      width: '360px',
+      height: '640px',
     },
-    mobile375: {
-      name: 'Mobile 375px',
-      styles: {
-        width: '375px',
-        height: '667px'
-      }
+  },
+  mobile375: {
+    name: 'Mobile 375px',
+    styles: {
+      width: '375px',
+      height: '667px',
     },
-    mobile414: {
-      name: 'Mobile 414px',
-      styles: {
-        width: '414px',
-        height: '736px'
-      }
-    }
-  }
-  
-  export const parameters = {
-    actions: { argTypesRegex: "^on[A-Z].*" },
-    controls: {
-      matchers: {
-        color: /(background|color)$/i,
-        date: /Date$/,
-      },
+  },
+  mobile414: {
+    name: 'Mobile 414px',
+    styles: {
+      width: '414px',
+      height: '736px',
     },
-    viewport: { viewports: customViewports},
-  }
+  },
+};
+
+export const parameters = {
+  actions: { argTypesRegex: '^on[A-Z].*' },
+  controls: {
+    matchers: {
+      color: /(background|color)$/i,
+      date: /Date$/,
+    },
+  },
+  viewport: { viewports: customViewports },
+};
+
+export const decorators = [
+  (Story) => (
+    <ThemeProvider theme={theme['light']}>
+      <Global styles={globalStyles} />
+      <Story />
+    </ThemeProvider>
+  ),
+];
