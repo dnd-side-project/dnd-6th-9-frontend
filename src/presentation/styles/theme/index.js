@@ -1,6 +1,9 @@
 import { COLOR } from '@styles';
 import { css } from '@emotion/react';
 export const common = {
+  modalShadow: css`
+    box-shadow: ${COLOR.MODAL_SHADOW} 0px 8px 24px 0px;
+  `,
   flexCenter: css`
     display: flex;
     justify-content: center;
