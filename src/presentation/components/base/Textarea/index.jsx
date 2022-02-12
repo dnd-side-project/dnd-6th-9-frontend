@@ -15,7 +15,10 @@ const Textarea = ({
   const handleChange = (e) => {
     const { value } = e.target;
     const { isSuccess, error } = textCheckByte(value, maxLength);
-    if (error) setIsError(true);
+    if (error) {
+      onChange && onChange({ error });
+      setIsError(true);
+    }
     if (isSuccess) {
       onChange && onChange({ text: value });
       setIsError(false);
