@@ -15,6 +15,10 @@ export const common = {
     justify-content: center;
     align-items: center;
   `,
+  InlineflexCenter: css`
+    display: inline-flex;
+    align-items: center;
+  `,
   HeaderFixedPosition: css`
     position: fixed;
     top: 0;
