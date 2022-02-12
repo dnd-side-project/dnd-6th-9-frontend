@@ -1,6 +1,6 @@
 const COLOR = {
   MODAL_SHADOW: 'rgba(0, 0, 0, 0.16)',
-  GRAY_OPACITY_900: 'rgba(27, 32, 44, 0.4)',
+  GRAY_OPACITY_900: 'rgba(27, 32, 44, 0.7)',
   GRAY_900: '#1B202C',
   GRAY_700: '#8C93A5',
   GRAY_500: '#A1ADC0',
