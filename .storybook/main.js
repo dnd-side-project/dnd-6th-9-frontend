@@ -22,6 +22,7 @@ module.exports = {
           ...webpack.alias,
           '@emotion/react': toPath('node_modules/@emotion/react'),
           '@emotion/styled': toPath('node_modules/@emotion/styled'),
+          'react-spring': toPath('node_modules/react-spring'),
         },
       },
     };
