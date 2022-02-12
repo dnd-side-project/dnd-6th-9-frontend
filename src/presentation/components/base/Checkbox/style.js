@@ -1,6 +1,7 @@
 import { animated } from 'react-spring';
 import { COLOR, FONT } from '@styles';
 import styled from '@emotion/styled';
+import { CHECK_BOX_SIZE } from '@utils/constants';
 
 const Container = styled.label`
   display: flex;
@@ -21,8 +22,8 @@ const CheckboxInput = styled.input`
 
 const CheckboxLabel = styled(animated.svg)`
   display: inline-block;
-  height: 24px;
-  width: 24px;
+  height: ${CHECK_BOX_SIZE};
+  width: ${CHECK_BOX_SIZE};
   background-color: ${COLOR.GRAY_0};
   border: 2px solid ${COLOR.GRAY_200};
   border-radius: 4px;
