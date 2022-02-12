@@ -58,7 +58,7 @@ const Checkbox = ({ name, onChange, labelText, checked, ...props }) => {
       >
         <animated.path
           d="M2 4.5L5 9L13 1"
-          strokeWidth="1"
+          strokeWidth="2"
           stroke={isChecked ? '#fff' : 'none'}
           strokeLinecap="round"
           strokeDasharray={checkmarkLength}
