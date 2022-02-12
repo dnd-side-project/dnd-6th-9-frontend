@@ -1,5 +1,5 @@
 import { Global, ThemeProvider } from '@emotion/react';
-import { globalStyles, theme } from '@styles';
+import { globalStyle, theme } from '@styles';
 const customViewports = {
   mobile360: {
     name: 'Mobile 360px',
@@ -38,7 +38,7 @@ export const parameters = {
 export const decorators = [
   (Story) => (
     <ThemeProvider theme={theme['light']}>
-      <Global styles={globalStyles} />
+      <Global styles={globalStyle} />
       <Story />
     </ThemeProvider>
   ),

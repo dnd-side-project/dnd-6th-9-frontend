@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Modal } from '@components/base';
 import styled from '@emotion/styled';
 export default {
-  title: 'Component/Modal',
+  title: 'Components/Modal',
   component: Modal,
 };
 
