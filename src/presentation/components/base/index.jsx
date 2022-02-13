@@ -5,3 +5,4 @@ export { default as Header } from './Header';
 export { default as Checkbox } from './Checkbox';
 export { default as Badge } from './Badge';
 export { default as Textarea } from './Textarea';
+export { default as Image } from './Image';
