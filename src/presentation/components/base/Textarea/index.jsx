@@ -1,7 +1,13 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { RootTextarea, ContentContainer, TextCounting } from './style';
+import {
+  RootTextarea,
+  ContentContainer,
+  TextCounting,
+  RootTextareaWrapper,
+} from './style';
 import { textCheckByte } from '@utils/validateFunc';
+
 const Textarea = ({
   name,
   onChange,
@@ -12,6 +18,13 @@ const Textarea = ({
 }) => {
   const currentLetterLength = value.length;
   const [isError, setIsError] = useState(false);
+  const [isFocus, setIsFocus] = useState(false);
+
+  const handleFocus = (e) => {
+    const { type } = e;
+    type === 'focus' ? setIsFocus(true) : setIsFocus(false);
+  };
+
   const handleChange = (e) => {
     const { value } = e.target;
     const { isSuccess, error } = textCheckByte(value, maxLength);
@@ -26,20 +39,22 @@ const Textarea = ({
   };
 
   return (
-    <div>
+    <RootTextareaWrapper isFocus={isFocus}>
       <RootTextarea
         name={name}
         value={value}
         placeholder={placeholder}
         onChange={handleChange}
+        onFocus={handleFocus}
+        onBlur={handleFocus}
         {...props}
       />
       <ContentContainer>
         <TextCounting className={isError ? 'error' : ''}>
-          {currentLetterLength}/{maxLength}
+          <strong>{currentLetterLength}</strong>/{maxLength}
         </TextCounting>
       </ContentContainer>
-    </div>
+    </RootTextareaWrapper>
   );
 };
 

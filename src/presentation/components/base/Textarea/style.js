@@ -3,21 +3,27 @@ import { COLOR, FONT } from '@styles';
 import { MAX_WIDTH } from '@utils/constants';
 const RootTextarea = styled.textarea`
   width: 100%;
-  height: 180px;
-  padding: 8px;
+  height: 160px;
   color: ${COLOR.GRAY_900};
-  border: 1px solid ${COLOR.GRAY_300};
-  border-radius: 4px;
+  border: none;
   outline: none;
   resize: none;
-  font-size: 16px;
-
   &:placeholder-shown {
     color: ${COLOR.GRAY_500};
   }
+  ${FONT.R_BODY_14}
+`;
+
+const RootTextareaWrapper = styled.div`
+  width: 100%;
+  padding: 10px;
+  color: ${COLOR.GRAY_900};
+  border: 1px solid ${COLOR.GRAY_300};
+  border-radius: 4px;
   &:focus {
     border: 1px solid ${COLOR.GRAY_900};
   }
+  ${({ isFocus }) => isFocus && `border-color: ${COLOR.GRAY_900};`}
 `;
 
 const ContentContainer = styled.div`
@@ -25,15 +31,17 @@ const ContentContainer = styled.div`
   width: 100%;
   justify-content: flex-end;
   max-width: ${MAX_WIDTH};
-  height: 18px;
+  height: 22px;
 `;
 
 const TextCounting = styled.span`
-  font-size: ${FONT.R_12_BODY};
+  ${FONT.R_12_BODY};
   color: ${COLOR.GRAY_500};
   &.error {
-    color: ${COLOR.RED_500};
+    strong {
+      color: ${COLOR.RED_500};
+    }
   }
 `;
 
-export { RootTextarea, ContentContainer, TextCounting };
+export { RootTextareaWrapper, RootTextarea, ContentContainer, TextCounting };
