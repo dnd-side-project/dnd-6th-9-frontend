@@ -1,6 +1,6 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { IconContainer } from "./style";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { IconContainer } from './style';
 import { COLOR } from '@styles';
 
 const Icon = ({ src, height, width, fill }) => {
@@ -11,14 +11,14 @@ Icon.propTypes = {
   src: PropTypes.string,
   height: PropTypes.number,
   width: PropTypes.number,
-  fill: PropTypes.string
+  fill: PropTypes.string,
 };
 
 export default Icon;
 
 Icon.defaultProps = {
-    src: '',
-    height: 24,
-    width: 24,
-    fill: COLOR.GRAY_900,
-  };
+  src: '',
+  height: 24,
+  width: 24,
+  fill: COLOR.GRAY_900,
+};
