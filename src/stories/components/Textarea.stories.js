@@ -11,5 +11,14 @@ export const Default = () => {
     const { text, error } = value;
     if (!error) setValue(text);
   };
-  return <Textarea value={value} onChange={handleChange} maxLength={10} />;
+  return <Textarea value={value} onChange={handleChange} maxLength={30} />;
+};
+
+export const Long = () => {
+  const [value, setValue] = useState('');
+  const handleChange = (value) => {
+    const { text, error } = value;
+    if (!error) setValue(text);
+  };
+  return <Textarea value={value} onChange={handleChange} maxLength={500} />;
 };
