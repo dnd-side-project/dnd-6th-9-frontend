@@ -25,7 +25,7 @@ const CheckboxLabel = styled(animated.svg)`
   height: ${CHECK_BOX_SIZE};
   width: ${CHECK_BOX_SIZE};
   background-color: ${COLOR.GRAY_0};
-  border: 2px solid ${COLOR.GRAY_200};
+  border: 2px solid ${COLOR.GRAY_300};
   border-radius: 4px;
   margin-right: 8px;
   vertical-align: middle;

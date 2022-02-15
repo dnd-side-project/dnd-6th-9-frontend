@@ -17,9 +17,9 @@ const getFontWeight = (weight) => {
 const getLetterSpacing = (position) => {
   switch (position) {
     case 'Body':
-    case 'Button':
       return '0px';
     case 'Title':
+    case 'Heading':
       return '-0.02em';
   }
 };
@@ -31,17 +31,19 @@ export const FONT = ({ size, weight, position }) => css`
 `;
 
 const FONT_STYLES = {
-  B_32_TITLE: FONT({ size: 32, weight: 'B', position: 'Title' }),
+  B_32_HEADING: FONT({ size: 32, weight: 'B', position: 'Heading' }),
+  B_28_HEADING: FONT({ size: 28, weight: 'B', position: 'Heading' }),
   B_24_TITLE: FONT({ size: 24, weight: 'B', position: 'Title' }),
+  M_24_TITLE: FONT({ size: 24, weight: 'M', position: 'Title' }),
   B_20_TITLE: FONT({ size: 20, weight: 'B', position: 'Title' }),
   SB_18_TITLE: FONT({ size: 18, weight: 'SB', position: 'Title' }),
   SB_16_TITLE: FONT({ size: 16, weight: 'SB', position: 'Title' }),
-  SB_14_TITLE: FONT({ size: 14, weight: 'SB', position: 'Title' }),
-  M_16_BUTTON: FONT({ size: 16, weight: 'M', position: 'Button' }),
-  M_14_BUTTON: FONT({ size: 14, weight: 'M', position: 'Button' }),
-  M_12_BUTTON: FONT({ size: 12, weight: 'M', position: 'Button' }),
+  SB_12_TITLE: FONT({ size: 12, weight: 'SB', position: 'Title' }),
+  M_16_BODY: FONT({ size: 16, weight: 'M', position: 'Body' }),
   R_16_BODY: FONT({ size: 16, weight: 'R', position: 'Body' }),
+  M_14_BODY: FONT({ size: 14, weight: 'M', position: 'Body' }),
   R_14_BODY: FONT({ size: 14, weight: 'R', position: 'Body' }),
+  M_12_BODY: FONT({ size: 12, weight: 'M', position: 'Body' }),
   R_12_BODY: FONT({ size: 12, weight: 'R', position: 'Body' }),
 };
 

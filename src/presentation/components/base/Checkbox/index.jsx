@@ -16,7 +16,7 @@ const Checkbox = ({ name, onChange, labelText, checked, ...props }) => {
   const checkmarkAnimationRef = useSpringRef();
   const checkboxAnimation = useSpring({
     backgroundColor: isChecked ? COLOR.PURPLE_500 : COLOR.GRAY_0,
-    borderColor: isChecked ? COLOR.PURPLE_500 : COLOR.GRAY_200,
+    borderColor: isChecked ? COLOR.PURPLE_500 : COLOR.GRAY_300,
     config: config.gentle,
     ref: checkboxAnimationRef,
   });
