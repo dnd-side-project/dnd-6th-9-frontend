@@ -16,16 +16,25 @@ export const Default = (...args) => {
 
   return (
     <>
-      <button onClick={handleError}>Click</button>
+      <button onClick={handleError}>Error 버튼</button>
       <Input {...args} onChange={handleChange} maxLength={10} error={error} />
     </>
   );
 };
 
-export const Error = (...args) => {
+export const None = (...args) => {
+  const [error, setError] = useState(false);
+  const handleChange = ({ value }) => {
+    if (value) console.log(value);
+  };
+  const handleError = () => {
+    setError((prev) => !prev);
+  };
+
   return (
     <>
-      <Input {...args} error />
+      <button onClick={handleError}>Error 버튼</button>
+      <Input {...args} onChange={handleChange} error={error} />
     </>
   );
 };

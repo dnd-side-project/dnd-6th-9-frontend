@@ -15,6 +15,12 @@ const Input = ({
   const [isFocus, setIsFocus] = useState(false);
   const handleChange = (e) => {
     const { value } = e.target;
+    // maxLength 없을 시 제한 없음.
+    if (!maxLength) {
+      setValue(value);
+      onChange && onChange({ value });
+      return;
+    }
     const { isSuccess } = textCheckByte(value, maxLength);
     if (isSuccess) {
       setValue(value);
