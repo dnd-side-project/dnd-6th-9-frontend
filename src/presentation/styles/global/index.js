@@ -93,7 +93,7 @@ const GlobalStyle = css`
   html,
   body,
   #root {
-    background-color: ${({ theme }) => theme.colors.bgColor};
+    background-color: rgba(0, 0, 0, 0.2);
     max-width: ${MAX_WIDTH};
     height: 100%;
     margin: 0 auto;
@@ -141,6 +141,12 @@ const GlobalStyle = css`
   }
   input[disabled] {
     background-color: white;
+  }
+  #root {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 16px;
   }
 `;
 
