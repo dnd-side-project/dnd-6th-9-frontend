@@ -6,4 +6,6 @@ export { default as Checkbox } from './Checkbox';
 export { default as Badge } from './Badge';
 export { default as Textarea } from './Textarea';
 export { default as Image } from './Image';
+export { default as Tab } from './Tab';
 export { default as Button } from './Button';
+export { default as Icon } from './Icon';

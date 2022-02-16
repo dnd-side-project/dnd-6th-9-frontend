@@ -1,5 +1,4 @@
 import { Button } from '@components/base';
-
 export default {
   title: 'Components/Button',
   component: Button,
