@@ -1,6 +1,8 @@
 import onBoardingImg1 from '@assets/images/Onboarding/onBoarding1.svg';
 import onBoardingImg2 from '@assets/images/Onboarding/onBoarding2.svg';
 import onBoardingImg3 from '@assets/images/Onboarding/onBoarding3.svg';
+import kakaoIcon from '@assets/icons/kakao_icon.svg';
+import googleIcon from '@assets/icons/google_icon.svg';
 
 export const MAX_WIDTH = '414px';
 export const CHECK_BOX_SIZE = '20px';
@@ -28,5 +30,22 @@ export const SLIDES = [
     title: '추억에 빠져보세요.',
     subTitle: '친구들이 보내준 소중한 마음들!\n저장하며 간직해보세요.',
     img: onBoardingImg3,
+  },
+];
+
+// LoginPage
+
+export const SOCIAL_LOGIN_BUTTON_LIST = [
+  {
+    Text: '카카오톡으로 시작하기',
+    color: '#FEE500',
+    icon: kakaoIcon,
+    link: '',
+  },
+  {
+    Text: 'Google로 시작하기',
+    color: '#F1F4F6',
+    icon: googleIcon,
+    link: '',
   },
 ];
