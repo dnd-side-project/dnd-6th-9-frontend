@@ -146,7 +146,6 @@ const GlobalStyle = css`
     display: flex;
     flex-direction: column;
     background-color: white;
-    padding: 16px;
   }
 `;
 
