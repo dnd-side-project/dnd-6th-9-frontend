@@ -1,6 +1,16 @@
 import { COLOR } from '@styles';
 import { css } from '@emotion/react';
+import { MAX_WIDTH } from '@utils/constants';
 export const common = {
+  BottomFixedPosition: css`
+    max-width: ${MAX_WIDTH};
+    margin: 0 auto;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  `,
+
   modalShadow: css`
     box-shadow: ${COLOR.MODAL_SHADOW} 0px 8px 24px 0px;
   `,
@@ -20,6 +30,8 @@ export const common = {
     align-items: center;
   `,
   HeaderFixedPosition: css`
+    max-width: ${MAX_WIDTH};
+    margin: 0 auto;
     position: fixed;
     top: 0;
     left: 0;

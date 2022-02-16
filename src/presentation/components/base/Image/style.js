@@ -1,8 +1,8 @@
 import styled from '@emotion/styled';
-
+import { typeOfSize } from '@utils/conversionsFunc';
 const ImageContainer = styled.div`
-  height: ${(props) => props.height}px;
-  width: ${(props) => props.width}px;
+  height: ${({ height }) => typeOfSize(height)};
+  width: ${({ width }) => typeOfSize(width)};
   overflow: hidden;
 `;
 
