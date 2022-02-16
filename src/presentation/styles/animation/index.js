@@ -34,6 +34,15 @@ const ANIMATION = {
             transform: translateX(0);
         }
     `,
+  BOX_BOUNCE_2: keyframes`
+    70% { transform:translateY(0); }
+    80% { transform:translateY(-13%); }
+    90% { transform:translateY(0%); }
+    95% { transform:translateY(-3%); }
+    97% { transform:translateY(0%); }
+    99% { transform:translateY(-4%); }
+    100% { transform:translateY(-2%); }
+    `,
 };
 
 export default ANIMATION;
