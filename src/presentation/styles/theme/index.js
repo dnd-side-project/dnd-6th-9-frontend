@@ -38,7 +38,7 @@ export const common = {
     right: 0;
   `,
   HeaderInMainPosition: css`
-    padding-top: 40px;
+    padding-top: 56px;
   `,
 };
 
