@@ -5,6 +5,7 @@ import { FONT, COLOR } from '@styles';
 const Background = styled.div`
   height: 100%;
   padding: 16px;
+  overflow: scroll;
   ${({ theme }) => theme.common.HeaderInMainPosition};
 `;
 

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 //import queryString from 'query-string';
 import { Button, Image } from '@components/base';
 import { ListContainer } from './style.js';
-import present from './present.svg';
+import present from '@assets/icons/error_icon.svg';
 
 const PresentList = ({ onClickPresent }) => {
   /*

@@ -95,7 +95,7 @@ const GlobalStyle = css`
   #root {
     background-color: rgba(0, 0, 0, 0.2);
     max-width: ${MAX_WIDTH};
-    min-height: 100%;
+    height: 100%;
     margin: 0 auto;
   }
   *,
