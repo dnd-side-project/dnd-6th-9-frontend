@@ -7,45 +7,45 @@ export default {
 export const Default = () => {
   return (
     <>
-      <Button type={'primary'} size={'m'} disabled={false}>
+      <Button type={'primary'} disabled={false}>
         Button
       </Button>
 
-      <Button type={'primary'} size={'l'} disabled={false}>
+      <Button type={'primary'} disabled={false}>
         Button
       </Button>
 
-      <Button type={'primary'} size={'l'} disabled={true}>
+      <Button type={'primary'} disabled={true}>
         Button
       </Button>
 
-      <Button type={'secondary'} size={'m'} disabled={false}>
+      <Button type={'secondary'} disabled={false}>
         Button
       </Button>
-      <Button type={'secondary'} size={'l'} disabled={false}>
+      <Button type={'secondary'} disabled={false}>
         Button
       </Button>
-      <Button type={'secondary'} size={'l'} disabled={true}>
-        Button
-      </Button>
-
-      <Button type={'danger'} size={'m'} disabled={false}>
-        Button
-      </Button>
-      <Button type={'danger'} size={'l'} disabled={false}>
-        Button
-      </Button>
-      <Button type={'danger'} size={'l'} disabled={true}>
+      <Button type={'secondary'} disabled={true}>
         Button
       </Button>
 
-      <Button type={'select'} size={'m'} disabled={false}>
+      <Button type={'danger'} disabled={false}>
         Button
       </Button>
-      <Button type={'select'} size={'l'} disabled={false}>
+      <Button type={'danger'} disabled={false}>
         Button
       </Button>
-      <Button type={'select'} size={'l'} disabled={true}>
+      <Button type={'danger'} disabled={true}>
+        Button
+      </Button>
+
+      <Button type={'select'} disabled={false}>
+        Button
+      </Button>
+      <Button type={'select'} disabled={false}>
+        Button
+      </Button>
+      <Button type={'select'} disabled={true}>
         Button
       </Button>
     </>
