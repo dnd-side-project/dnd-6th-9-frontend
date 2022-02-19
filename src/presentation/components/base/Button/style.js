@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { COLOR, FONT } from '@styles';
+import { COLOR } from '@styles';
 
 const BUTTON_BACKGROUND_COLOR = {
   PRIMARY: {
@@ -70,22 +70,13 @@ const BUTTON_TEXT_COLOR = {
   },
 };
 
-const BUTTON_WIDTH = {
-  M: '80px',
-  L: '85px',
-};
-
-const BUTTON_HEIGHT = {
-  M: '40px',
-  L: '48px',
-};
-
 const ButtonWrapper = styled.button`
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   border-radius: 4px;
+  width: 100%;
 
   font-family: 'SUIT', sans-serif;
   font-style: normal;
@@ -169,18 +160,6 @@ const ButtonWrapper = styled.button`
       background-color: ${BUTTON_BACKGROUND_COLOR['SELECT']['DISABLED']};
       opacity: 0.3;
     }
-  }
-
-  &.m {
-    width: ${BUTTON_WIDTH.M};
-    height: ${BUTTON_HEIGHT.M};
-    ${FONT.M_14_BODY}
-  }
-
-  &.l {
-    width: ${BUTTON_WIDTH.L};
-    height: ${BUTTON_HEIGHT.L};
-    ${FONT.M_16_BODY}
   }
 
   &:disabled {
