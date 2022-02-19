@@ -85,7 +85,6 @@ const ButtonWrapper = styled.button`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding: 8px 16px;
   border-radius: 4px;
 
   font-family: 'SUIT', sans-serif;
