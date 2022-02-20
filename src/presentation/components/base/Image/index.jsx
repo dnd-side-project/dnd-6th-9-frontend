@@ -1,10 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ImageContainer from './style';
-import {
-  IMAGE_HEIGHT,
-  IMAGE_WIDTH,
-} from '../../../../application/utils/constants';
 
 const Image = ({ src, width, height, mode, ...rest }) => {
   const imageStyle = {
@@ -32,7 +28,5 @@ Image.propTypes = {
 
 Image.defaultProps = {
   src: '',
-  width: IMAGE_WIDTH,
-  height: IMAGE_HEIGHT,
   mode: 'fill',
 };
