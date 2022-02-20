@@ -1,22 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ImageContainer from './style';
-import {
-  IMAGE_HEIGHT,
-  IMAGE_WIDTH,
-} from '../../../../application/utils/constants';
+import { ImageContainer, ImageStyle } from './style';
 
 const Image = ({ src, width, height, mode, ...rest }) => {
-  const imageStyle = {
-    width: '100%',
-    height: '100%',
-    objectFit: mode,
-    objectPosition: '50% 50%',
-  };
-
   return (
     <ImageContainer width={width} height={height}>
-      <img src={src} style={imageStyle} {...rest} />
+      <ImageStyle src={src} mode={mode} {...rest} />
     </ImageContainer>
   );
 };
@@ -32,7 +21,5 @@ Image.propTypes = {
 
 Image.defaultProps = {
   src: '',
-  width: IMAGE_WIDTH,
-  height: IMAGE_HEIGHT,
   mode: 'fill',
 };
