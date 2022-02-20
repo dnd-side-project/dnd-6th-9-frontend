@@ -147,6 +147,18 @@ const GlobalStyle = css`
     flex-direction: column;
     background-color: white;
   }
+  ul,
+  li,
+  ol {
+    list-style: none;
+  }
+
+  a,
+  a:hover,
+  a:active,
+  a:visited {
+    color: inherit;
+  }
 `;
 
 export default GlobalStyle;
