@@ -9,6 +9,8 @@ const MenuButton = styled.button`
 
 const ContentWrapper = styled(DefaultTemplate)`
   background-color: ${COLOR.GRAY_100};
+  flex-direction: column;
+  height: auto;
   ${({ theme }) => theme.common.HeaderInMainPosition};
 `;
 
