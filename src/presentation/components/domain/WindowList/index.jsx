@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import school_window_close from '@assets/images/schoolTheme/school_window_close.svg';
-import school_window_open from '@assets/images/schoolTheme/school_window_open.svg';
-import school_window_dummy from '@assets/images/schoolTheme/school_window_dummy.svg';
+import school_window_close from '@assets/images/schoolTheme/school_window_close.png';
+import school_window_open from '@assets/images/schoolTheme/school_window_open.png';
+import school_window_dummy from '@assets/images/schoolTheme/school_window_dummy.png';
 import { Image, Badge } from '@components/base';
 import {
   ThemeMiddle,
