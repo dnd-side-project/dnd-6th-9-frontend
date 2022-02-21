@@ -38,6 +38,7 @@ const FONT_STYLES = {
   B_20_TITLE: FONT({ size: 20, weight: 'B', position: 'Title' }),
   SB_18_TITLE: FONT({ size: 18, weight: 'SB', position: 'Title' }),
   SB_16_TITLE: FONT({ size: 16, weight: 'SB', position: 'Title' }),
+  SB_14_TITLE: FONT({ size: 14, weight: 'SB', position: 'Title' }),
   SB_12_TITLE: FONT({ size: 12, weight: 'SB', position: 'Title' }),
   M_16_BODY: FONT({ size: 16, weight: 'M', position: 'Body' }),
   R_16_BODY: FONT({ size: 16, weight: 'R', position: 'Body' }),
