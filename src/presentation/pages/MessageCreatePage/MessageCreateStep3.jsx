@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
 import { COLOR } from '@styles';
 import PropTypes from 'prop-types';
-import warning from '@assets/icons/warning.svg';
 import plus from '@assets/icons/plus.svg';
+import deleteIcon from '@assets/icons/delete_icon.svg';
+
 import {
   Icon,
   Button,
   Textarea,
   Input,
   Checkbox,
-  Upload,
   Image,
+  Upload,
 } from '@components/base';
 import {
   StepTitle,
@@ -19,6 +20,16 @@ import {
   SenderInput,
   PrivateMessageInput,
   ImageWrapper,
+  ErrorIcon,
+  WarningMessage,
+  //UploadStyle,
+  ButtonStyle,
+  TextAreaStyle,
+  ButtonText,
+  SenderTitle,
+  EditText,
+  InputTitleWrapper,
+  PrivateMsgText,
 } from './style';
 
 const MessageCreateStep3 = ({
@@ -27,16 +38,23 @@ const MessageCreateStep3 = ({
   handleChangeName,
   handleChangePrivate,
 }) => {
-  const [imageSrc, setImageSrc] = useState('');
   const [content, setContent] = useState('');
+  const [imageSrc, setimageSrc] = useState(null);
   const [name, setName] = useState('');
   const [privateCheck, setPrivateCheck] = useState(false);
 
+  const handleChangeContent = (value) => {
+    const { text, error } = value;
+    if (!error) {
+      setContent(text);
+      handleChangeTextArea(text);
+    }
+  };
   const handleUpload = (file) => {
     const reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onloadend = () => {
-      setImageSrc(reader.result);
+      setimageSrc(reader.result);
       handleChangeFile(file);
     };
   };
@@ -50,21 +68,15 @@ const MessageCreateStep3 = ({
     handleChangePrivate(checked);
   };
 
-  const handleChangeContent = (value) => {
-    const { text, error } = value;
-    if (!error) {
-      setContent(text);
-      handleChangeTextArea(text);
-    }
-  };
-
   return (
     <>
       <StepTitle>
         메시지를 작성해주세요
         <MessageWithIconWrapper className="warning">
-          <Icon src={warning} height={16} width={16} fill={COLOR.RED_500} />
-          <span>욕설 및 비방 작성시 신고 대상이 될 수 있어요.</span>
+          <ErrorIcon />
+          <WarningMessage>
+            욕설 및 비방 작성시 신고 대상이 될 수 있어요.
+          </WarningMessage>
         </MessageWithIconWrapper>
       </StepTitle>
 
@@ -72,26 +84,38 @@ const MessageCreateStep3 = ({
         {imageSrc ? (
           <>
             <ImageWrapper>
-              <Image src={imageSrc} width={'100%'} height={246} mode={'fill'} />
+              <Image
+                src={imageSrc}
+                width={'100%'}
+                height={246}
+                mode={'contain'}
+              />
             </ImageWrapper>
             <Button
               type={'select'}
-              style={{ width: '100%', height: '36px', margin: '8px 0px' }}
-              onClick={() => setImageSrc('')}
+              style={ButtonStyle}
+              onClick={() => setimageSrc('')}
             >
               <MessageWithIconWrapper>
-                <Icon src={plus} height={20} width={20} fill={COLOR.GRAY_900} />
-                <span>사진 삭제하기</span>
+                <Icon
+                  src={deleteIcon}
+                  height={20}
+                  width={20}
+                  fill={COLOR.GRAY_900}
+                />
+                <ButtonText>사진 삭제하기</ButtonText>
               </MessageWithIconWrapper>
             </Button>
-            <Textarea
-              name={'message'}
-              onChange={handleChangeContent}
-              value={content}
-              maxLength={300}
-              placeholder={'메시지를 작성해주세요.'}
-              style={{ marginTop: '8px' }}
-            />
+            <TextAreaStyle>
+              <Textarea
+                name={'message'}
+                onChange={handleChangeContent}
+                value={content}
+                maxLength={300}
+                placeholder={'메시지를 작성해주세요.'}
+                style={{ marginTop: '8px' }}
+              />
+            </TextAreaStyle>
           </>
         ) : (
           <>
@@ -108,10 +132,7 @@ const MessageCreateStep3 = ({
               onChange={handleUpload}
               style={{ width: '100%' }}
             >
-              <Button
-                type={'select'}
-                style={{ width: '100%', height: '36px', marginTop: '8px' }}
-              >
+              <Button type={'select'} style={ButtonStyle}>
                 <MessageWithIconWrapper>
                   <Icon
                     src={plus}
@@ -119,7 +140,7 @@ const MessageCreateStep3 = ({
                     width={20}
                     fill={COLOR.GRAY_900}
                   />
-                  <span>사진 추가하기</span>
+                  <ButtonText>사진 추가하기</ButtonText>
                 </MessageWithIconWrapper>
               </Button>
             </Upload>
@@ -128,10 +149,10 @@ const MessageCreateStep3 = ({
       </InputContainer>
 
       <SenderInput>
-        <div className="title">
-          <span>보내는 사람</span>
-          <div>수정</div>
-        </div>
+        <InputTitleWrapper>
+          <SenderTitle>보내는 사람</SenderTitle>
+          <EditText>수정</EditText>
+        </InputTitleWrapper>
         <Input
           width={'100%'}
           value={name}
@@ -147,9 +168,9 @@ const MessageCreateStep3 = ({
           labelText={'비밀메세지'}
           checked={privateCheck}
         />
-        <div className="detail">
+        <PrivateMsgText>
           비밀메시지를 작성하면 상대방만 메시지를 볼 수 있어요!
-        </div>
+        </PrivateMsgText>
       </PrivateMessageInput>
     </>
   );

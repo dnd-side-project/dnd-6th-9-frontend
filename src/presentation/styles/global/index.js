@@ -95,7 +95,7 @@ const GlobalStyle = css`
   #root {
     background-color: rgba(0, 0, 0, 0.2);
     max-width: ${MAX_WIDTH};
-    min-height: 100%;
+    height: 100%;
     margin: 0 auto;
   }
   *,
@@ -146,6 +146,17 @@ const GlobalStyle = css`
     display: flex;
     flex-direction: column;
     background-color: white;
+  }
+  ul,
+  li,
+  ol {
+    list-style: none;
+  }
+  a,
+  a:hover,
+  a:active,
+  a:visited {
+    color: inherit;
   }
 `;
 

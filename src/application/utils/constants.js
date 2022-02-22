@@ -5,9 +5,8 @@ import kakaoIcon from '@assets/icons/kakao_icon.svg';
 import googleIcon from '@assets/icons/google_icon.svg';
 
 export const MAX_WIDTH = '414px';
+export const MIN_WIDTH = '320px';
 export const CHECK_BOX_SIZE = '20px';
-export const IMAGE_WIDTH = '328px';
-export const IMAGE_HEIGHT = '246px';
 
 // OnboardingPage
 export const SLIDES = [
@@ -47,5 +46,28 @@ export const SOCIAL_LOGIN_BUTTON_LIST = [
     color: '#F1F4F6',
     icon: googleIcon,
     link: '',
+  },
+];
+
+export const MENU_LAYER_LIST = [
+  {
+    Text: '홈',
+    link: '/',
+  },
+  {
+    Text: '서비스 소개',
+    link: '/',
+  },
+  {
+    Text: '로그아웃',
+    link: '/',
+  },
+  {
+    Text: '회원 탈퇴',
+    link: '/',
+  },
+  {
+    Text: '문의하기',
+    link: '/',
   },
 ];

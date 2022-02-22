@@ -8,7 +8,7 @@ const COLOR = {
   GRAY_300: '#E3E8F0',
   GRAY_100: '#F3F6F8',
   GRAY_0: '#FFFFFF',
-  RED_500: '#F02746',
+  RED_500: '#F44560',
   RED_300: '#F9A9B5',
   RED_100: '#FEEAED',
   PURPLE_400: '#BA90FF',

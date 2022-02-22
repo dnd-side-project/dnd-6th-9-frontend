@@ -1,41 +1,28 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import moment from 'moment';
 import { Button } from '@components/base';
-import { StepTitle, DayListContainer } from './style';
+import { StepTitle, DayListContainer, DayButtonStyle } from './style';
 import { useEffect } from 'react';
 import { timeCalculateFunc } from '@utils/timeCalculateFunc';
+
 const MessageCreateStep1 = ({ eventDate, createdDate, onClickDay }) => {
-  const [days, setDays] = useState();
-  const [passed, setPassed] = useState();
+  const [days, setDays] = useState(); // 디데이까지 남은 날짜 계산
+  const [passed, setPassed] = useState(); //이벤트 생성날부터 ~ 오늘까지 날짜
 
   useEffect(() => {
     setDays(timeCalculateFunc(createdDate, eventDate)); //디데이까지 남은 날짜 계산
-    //생성날짜 - 오늘이랑
-    const now = new Date();
-    const nowStr = `${now.getFullYear()}-${
-      now.getMonth() + 1
-    }-${now.getDate()}`;
-    setPassed(timeCalculateFunc(createdDate, nowStr));
-
-    const list = [];
-
-    for (var i = days; i >= days - passed; i--) {
-      list.push(i);
-    }
-
-    for (var j = days - passed - 1; j >= 1; j--) {
-      list.push(j);
-    }
+    setPassed(timeCalculateFunc(createdDate, moment().format('YYYY-MM-DD'))); //이벤트 생성-오늘날짜까지
   });
 
   const getCards = () => {
     const list = [];
-    for (var i = days; i >= days - passed; i--) {
+    for (let i = days; i >= days - passed; i--) {
       list.push(
         <Button
           key={`day-${i}`}
           type={'select'}
-          style={{ width: '104px', height: '120px', marginBottom: '8px' }}
+          style={DayButtonStyle}
           disabled
         >
           D-{i}
@@ -48,7 +35,7 @@ const MessageCreateStep1 = ({ eventDate, createdDate, onClickDay }) => {
         <Button
           key={j}
           type={'select'}
-          style={{ width: '104px', height: '120px', marginBottom: '8px' }}
+          style={DayButtonStyle}
           onClick={onClickDay}
         >
           D-{j}
@@ -56,6 +43,16 @@ const MessageCreateStep1 = ({ eventDate, createdDate, onClickDay }) => {
       );
     }
 
+    list.push(
+      <Button
+        key={0}
+        type={'select'}
+        style={DayButtonStyle}
+        onClick={onClickDay}
+      >
+        D-Day
+      </Button>,
+    );
     return list;
   };
 
@@ -74,15 +71,3 @@ MessageCreateStep1.propTypes = {
   createdDate: PropTypes.string,
   onClickDay: PropTypes.func,
 };
-
-/**
- * 
- * color: ${COLOR.GRAY_900};
-  ${FONT.SB_16_TITLE};
- */
-
-/**
- *
- *
- *
- */

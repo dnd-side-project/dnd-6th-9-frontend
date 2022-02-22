@@ -9,3 +9,4 @@ export { default as Image } from './Image';
 export { default as Tab } from './Tab';
 export { default as Button } from './Button';
 export { default as Icon } from './Icon';
+export { default as StatusBadge } from './StatusBadge';

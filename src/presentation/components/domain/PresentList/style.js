@@ -1,17 +1,14 @@
 import styled from '@emotion/styled';
 const ListContainer = styled.div`
-  margin-top: 20px;
-  margin-bottom: 70px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  padding: 0px;
   width: 100%;
-  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5%;
+  padding-bottom: 80px;
 `;
 
-const PresentWrapper = styled.div`
-  margin-bottom: 8px;
-`;
+const ButtonStyle = {
+  aspectRatio: '1',
+};
 
-export { ListContainer, PresentWrapper };
+export { ListContainer, ButtonStyle };

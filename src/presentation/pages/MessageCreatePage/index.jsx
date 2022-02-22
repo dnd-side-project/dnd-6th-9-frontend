@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import { Header, Button, Icon } from '@components/base';
+import moment from 'moment';
+import { Button } from '@components/base';
+import { DefaultPageHeader } from '@components/domain';
 import {
   Background,
-  LeftHeaderContent,
-  BackText,
+  //LeftHeaderContent,
+  //BackText,
   MessageCreatePageContainer,
   ButtonWrapper,
 } from './style';
@@ -11,7 +13,7 @@ import MessageCreateStep1 from './MessageCreateStep1';
 import MessageCreateStep2 from './MessageCreateStep2';
 import MessageCreateStep3 from './MessageCreateStep3';
 
-import arrow_left from '@assets/icons/arrow_left.svg';
+//import arrow_left from '@assets/icons/arrow_left.svg';
 
 const Dummy = {
   eventId: 1,
@@ -19,7 +21,7 @@ const Dummy = {
   eventName: '이벤트이름',
   dDayName: '창민아 생일 축하한다앜',
   eventDescription: '이벤트설명',
-  eventDate: '2022-2-28',
+  eventDate: '2022-3-1',
   createdDate: '2022-2-18',
 };
 
@@ -33,23 +35,17 @@ const MESSAGE_PROGRESS_VALUE = {
 const MessageCreatePage = () => {
   const [step, setStep] = useState(MESSAGE_PROGRESS_VALUE.current);
   const [formData, setFormData] = useState(new FormData());
-  const [content, setContent] = useState('');
+  //const [content, setContent] = useState('');
 
   const onClickDay = (e) => {
-    const addDays = e.target.textContent[2];
-    const temp = Dummy.eventDate.split('-');
-    const endDay = new Date(temp[0], temp[1] - 1, temp[2]);
-
-    const targetDay = new Date();
-    targetDay.setFullYear(endDay.getFullYear());
-    targetDay.setDate(endDay.getDate() - parseInt(addDays, 10));
-    targetDay.setMonth(endDay.getMonth());
+    const dDay = e.target.textContent[2]; //D-5
+    const targetDay = moment(Dummy.eventDate)
+      .subtract(dDay, 'd')
+      .format('YYYY-MM-DD');
 
     setFormData({
       ...formData,
-      ['open-date']: `${targetDay.getFullYear()}-${
-        targetDay.getMonth() + 1
-      }-${targetDay.getDate()}`,
+      ['open-date']: targetDay,
     });
   };
 
@@ -60,10 +56,7 @@ const MessageCreatePage = () => {
     });
   };
 
-  const handleChangeTextArea = (value) => {
-    const { text, error } = value;
-    if (!error) setContent(text);
-
+  const handleChangeTextArea = (content) => {
     setFormData({
       ...formData,
       ['content']: content,
@@ -100,7 +93,6 @@ const MessageCreatePage = () => {
 
   const createMessage = () => {
     console.log(formData);
-    console.log(content);
   };
 
   const handleCreateMessage = (step) => {
@@ -139,16 +131,7 @@ const MessageCreatePage = () => {
 
   return (
     <Background>
-      <Header
-        leftContent={
-          <>
-            <LeftHeaderContent onClick={handleBackStep}>
-              <Icon src={arrow_left} width={24} height={24} />
-              <BackText>뒤로</BackText>
-            </LeftHeaderContent>
-          </>
-        }
-      />
+      <DefaultPageHeader handleGoBack={handleBackStep} />
       <MessageCreatePageContainer>
         {headerSwitch(step)}
       </MessageCreatePageContainer>

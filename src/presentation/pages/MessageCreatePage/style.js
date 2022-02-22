@@ -1,43 +1,19 @@
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 import { FONT, COLOR } from '@styles';
+import { ReactComponent as Error_Icon } from '@assets/icons/error_icon.svg';
 
 const Background = styled.div`
   height: 100%;
   padding: 16px;
   ${({ theme }) => theme.common.HeaderInMainPosition};
+  overflow: auto;
+  padding-bottom: 80px;
 `;
 
 const MessageCreatePageContainer = styled.div`
-  height: 100%;
-  min-width: 100%;
+  width: 100%;
 `;
-/**
- * ${({ theme }) => theme.common.flexCenter}
- * flexCenter: css`
-    display: flex;
-    justify-content: center;
-    align-items: center;
- * 
-
-    flex-direction: column;
-  justify-content: flex-start;
- */
-const LeftHeaderContent = styled.div`
-  display: flex;
-  align-items: center;
-  width: 52px;
-  height: 24px;
-  cursor: pointer;
-`;
-const BackText = styled.div`
-  width: 28;
-  height: 24px;
-  ${FONT.M_16_BODY};
-  display: flex;
-  align-items: center;
-`;
-
 const StepTitle = styled.div`
   display: flex;
   flex-direction: column;
@@ -50,18 +26,21 @@ const StepTitle = styled.div`
   color: ${COLOR.GRAY_900};
 `;
 
-/* step 2*/
-const TabWrapper = styled.div`
-  margin: 16px 0px;
-`;
-
 const DayListContainer = styled.div`
   width: 100%;
-  height: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  margin-bottom: 80px;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4.5%;
+  padding-bottom: 80px;
+`;
+
+const DayButtonStyle = {
+  aspectRatio: '98/120',
+  margin: '0 auto',
+};
+
+const TabWrapper = styled.div`
+  margin: 16px 0px;
 `;
 
 const buttonStyle = css({
@@ -77,55 +56,70 @@ const ButtonWrapper = styled.div`
   ${FONT.M_16_BODY};
 `;
 
-/* step 2 */
-const MessageWithIconWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  & span {
-    margin-left: 8px;
-  }
+const ErrorIcon = styled(Error_Icon)`
+  height: 16px;
+  width: 16px;
+`;
 
-  &.warning {
-    margin-top: 8px;
-    & span {
-      ${FONT.R_12_BODY};
-      color: ${COLOR.RED_500};
-    }
+const WarningMessage = styled.div`
+  ${FONT.R_12_BODY};
+  color: ${COLOR.RED_500};
+`;
+
+const MessageWithIconWrapper = styled.div`
+  ${({ theme }) => theme.common.flexCenter};
+  &.warningMsg {
+    padding-top: 8px;
   }
 `;
 
-/* step 3 */
 const InputContainer = styled.div`
   width: 100%;
   margin-top: 24px;
 `;
+
+const ButtonText = styled.div`
+  ${FONT.R_14_BODY};
+  color: ${COLOR.GRAY_900};
+  text-align: center;
+`;
+
+const InputTitleWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
 const SenderInput = styled.div`
   margin: 24px 0;
-  & div.title {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 8px;
-    & span {
-      ${FONT.SB_16_TITLE}
-    }
-    & div {
-      ${FONT.R_14_BODY}
-      color: ${COLOR.PURPLE_500}
-    }
-  }
+`;
+
+const SenderTitle = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  ${FONT.SB_16_TITLE}
+`;
+
+const EditText = styled.div`
+  ${FONT.R_14_BODY}
+  color: ${COLOR.PURPLE_500};
+  margin-right: 0px;
 `;
 
 const PrivateMessageInput = styled.div`
   ${FONT.R_14_BODY}
   margin-bottom: 238px;
   color: ${COLOR.GRAY_900};
-  & div.detail {
-    margin-top: 8px;
-    padding-left: 28px;
-    color: ${COLOR.GRAY_700};
-    ${FONT.R_12_BODY};
-  }
+`;
+
+const PrivateMsgText = styled.div`
+  ${FONT.R_14_BODY}
+  margin-bottom: 238px;
+  color: ${COLOR.GRAY_900};
+  margin-top: 8px;
+  padding-left: 28px;
+  color: ${COLOR.GRAY_700};
+  ${FONT.R_12_BODY};
 `;
 
 const ImageWrapper = styled.div`
@@ -133,19 +127,41 @@ const ImageWrapper = styled.div`
   overflow: hidden;
 `;
 
+const UploadStyle = { width: '100%' };
+
+const ButtonStyle = {
+  width: '100%',
+  height: '36px',
+  marginTop: '8px',
+  display: 'flex',
+  alignItems: 'center',
+};
+
+const TextAreaStyle = styled.div`
+  margin-top: 8px;
+`;
 export {
   Background,
-  LeftHeaderContent,
-  BackText,
   MessageCreatePageContainer,
   StepTitle,
+  DayButtonStyle,
   TabWrapper,
   DayListContainer,
   ButtonWrapper,
   buttonStyle,
+  ErrorIcon,
+  WarningMessage,
   MessageWithIconWrapper,
   InputContainer,
   SenderInput,
   PrivateMessageInput,
   ImageWrapper,
+  UploadStyle,
+  ButtonStyle,
+  TextAreaStyle,
+  ButtonText,
+  SenderTitle,
+  EditText,
+  InputTitleWrapper,
+  PrivateMsgText,
 };

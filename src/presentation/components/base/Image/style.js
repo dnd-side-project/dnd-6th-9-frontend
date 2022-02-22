@@ -6,4 +6,10 @@ const ImageContainer = styled.div`
   overflow: hidden;
 `;
 
-export default ImageContainer;
+const ImageStyle = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: ${({ mode }) => mode};
+  object-position: 50% 50%;
+`;
+export { ImageContainer, ImageStyle };

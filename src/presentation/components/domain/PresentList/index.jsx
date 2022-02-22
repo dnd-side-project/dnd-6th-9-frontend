@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 //import { useLocation } from 'react-router';
 //import queryString from 'query-string';
 import { Button, Image } from '@components/base';
-import { ListContainer } from './style.js';
-import present from './present.svg';
+import { ListContainer, ButtonStyle } from './style.js';
+import pencil from '@assets/images/school_present/pencil.png';
 
 const PresentList = ({ onClickPresent }) => {
   /*
@@ -16,37 +16,38 @@ const PresentList = ({ onClickPresent }) => {
   */
 
   const dummydata = [
-    { type: 'airPod', src: present },
-    { type: 'money', src: present },
-    { type: 'nintendo', src: present },
-    { type: '4', src: present },
-    { type: '5', src: present },
-    { type: '6', src: present },
-    { type: '7', src: present },
-    { type: '8', src: present },
-    { type: '9', src: present },
-    { type: '10', src: present },
-    { type: '11', src: present },
-    { type: '12', src: present },
+    { type: 'airPod', src: pencil },
+    { type: 'money', src: pencil },
+    { type: 'nintendo', src: pencil },
+    { type: '4', src: pencil },
+    { type: '5', src: pencil },
+    { type: '6', src: pencil },
+    { type: '7', src: pencil },
+    { type: '8', src: pencil },
+    { type: '9', src: pencil },
+    { type: '10', src: pencil },
+    { type: '11', src: pencil },
   ];
 
   return (
     <ListContainer>
       {dummydata.map((presentImage, index) => {
         return (
-          <Button
-            key={index}
-            type={'select'}
-            style={{ width: '104px', height: '104px', marginBottom: '8px' }}
-            onClick={() => onClickPresent(presentImage.type)}
-          >
-            <Image
-              key={present.type}
-              width={104}
-              height={104}
-              src={presentImage.src}
-            />
-          </Button>
+          <>
+            <Button
+              key={index}
+              type={'select'}
+              style={ButtonStyle}
+              onClick={() => onClickPresent(presentImage.type)}
+            >
+              <Image
+                key={presentImage.type}
+                width={'100%'}
+                height={'100%'}
+                src={presentImage.src}
+              />
+            </Button>
+          </>
         );
       })}
     </ListContainer>
