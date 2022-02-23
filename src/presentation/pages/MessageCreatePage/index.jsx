@@ -1,14 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import moment from 'moment';
-import { Button } from '@components/base';
+import { Button, Modal } from '@components/base';
 import { DefaultPageHeader } from '@components/domain';
 import {
   Background,
-  //LeftHeaderContent,
-  //BackText,
   MessageCreatePageContainer,
   ButtonWrapper,
   buttonStyle,
+  ModalStyle,
+  ModalContent,
+  ModalText,
+  ModalButtonStyle,
+  ModalSubText,
+  ButtonContainer,
 } from './style';
 import MessageCreateStep1 from './MessageCreateStep1';
 import MessageCreateStep2 from './MessageCreateStep2';
@@ -30,13 +34,26 @@ const labels = ['전체', '생일', '기본'];
 
 const MESSAGE_PROGRESS_VALUE = {
   current: 1,
-  totalStep: 4,
+  totalStep: 3,
 };
 
 const MessageCreatePage = () => {
   const [step, setStep] = useState(MESSAGE_PROGRESS_VALUE.current);
-  const [formData, setFormData] = useState(new FormData());
-  const [errors, setErrors] = useState({});
+  const [formData, setFormData] = useState({});
+  const [buttonAbled, setButtonAbled] = useState(false);
+  const [visible, setVisible] = useState(false);
+  const [cancelModalVisible, setCancelModalVisible] = useState(false);
+  useEffect(() => {
+    if (step === 1 && formData['open-date']) {
+      setButtonAbled(true);
+    } else if (step === 2 && formData['gift-id']) {
+      setButtonAbled(true);
+    } else if (step === 3 && formData['content'] && formData['nick-name']) {
+      setButtonAbled(true);
+    } else {
+      setButtonAbled(false);
+    }
+  });
 
   const onClickDay = (e) => {
     const dDay = e.target.textContent[2]; //D-5
@@ -48,7 +65,6 @@ const MessageCreatePage = () => {
       ...formData,
       ['open-date']: targetDay,
     });
-    setErrors({});
   };
 
   const onClickPresent = (type) => {
@@ -56,7 +72,6 @@ const MessageCreatePage = () => {
       ...formData,
       ['gift-id']: type,
     });
-    setErrors({});
   };
 
   const handleChangeTextArea = (content) => {
@@ -64,7 +79,6 @@ const MessageCreatePage = () => {
       ...formData,
       ['content']: content,
     });
-    setErrors({});
   };
 
   const handleChangeFile = (file) => {
@@ -72,7 +86,6 @@ const MessageCreatePage = () => {
       ...formData,
       ['image-url']: file,
     });
-    setErrors({});
   };
 
   const handleChangeName = (name) => {
@@ -80,7 +93,6 @@ const MessageCreatePage = () => {
       ...formData,
       ['nick-name']: name,
     });
-    setErrors({});
   };
 
   const handleChangePrivate = (checked) => {
@@ -88,55 +100,40 @@ const MessageCreatePage = () => {
       ...formData,
       ['public']: checked,
     });
-    setErrors({});
   };
   const handleNextStep = () => {
     setStep((step) => step + 1);
   };
 
   const handleBackStep = () => {
-    setStep((step) => step - 1);
+    if (step === 1) {
+      setCancelModalVisible(true);
+    } else {
+      setStep((step) => step - 1);
+    }
   };
 
+  const onSubmit = () => {};
+
+  const onClickDelete = () => {};
+
+  const onClickCancel = () => {
+    setCancelModalVisible(false);
+  };
   const createMessage = () => {
     console.log(formData);
+    setVisible(true);
   };
 
   const handleCreateMessage = (step) => {
     if (step !== MESSAGE_PROGRESS_VALUE.totalStep) {
-      console.log(formData);
-      switch (step) {
-        case 1:
-          !formData['open-date']
-            ? setErrors({
-                openDate: '날짜를 선택해주세요.',
-              })
-            : handleNextStep();
-          break;
-        case 2:
-          !formData['gift-id']
-            ? setErrors({ gift: '선물을 선택해주세요.' })
-            : handleNextStep();
-          break;
-        case 3: {
-          if (!(formData['nick-name'] && formData['content'])) {
-            setErrors({
-              content: '메세지와 닉네임을 입력해주세요.',
-            });
-          } else {
-            handleNextStep();
-          }
-          break;
-        }
-        default:
-          break;
-      }
+      handleNextStep();
     } else {
       createMessage();
     }
   };
 
-  const headerSwitch = (step) => {
+  const handleSwitch = (step) => {
     switch (step) {
       case 1:
         return (
@@ -144,16 +141,11 @@ const MessageCreatePage = () => {
             eventDate={Dummy.eventDate}
             createdDate={Dummy.createdDate}
             onClickDay={onClickDay}
-            errors={errors}
           />
         );
       case 2:
         return (
-          <MessageCreateStep2
-            labels={labels}
-            onClickPresent={onClickPresent}
-            errors={errors}
-          />
+          <MessageCreateStep2 labels={labels} onClickPresent={onClickPresent} />
         );
       case 3:
         return (
@@ -162,7 +154,6 @@ const MessageCreatePage = () => {
             handleChangeFile={handleChangeFile}
             handleChangeName={handleChangeName}
             handleChangePrivate={handleChangePrivate}
-            errors={errors}
           />
         );
     }
@@ -172,17 +163,50 @@ const MessageCreatePage = () => {
     <Background>
       <DefaultPageHeader handleGoBack={handleBackStep} />
       <MessageCreatePageContainer>
-        {headerSwitch(step)}
+        {handleSwitch(step)}
       </MessageCreatePageContainer>
       <ButtonWrapper>
         <Button
-          type={'primary'}
+          type={buttonAbled ? 'primary' : 'secondary'}
           style={buttonStyle}
           onClick={() => handleCreateMessage(step)}
+          disabled={!buttonAbled}
         >
           {step !== 3 ? '다음으로' : '작성완료'}
         </Button>
       </ButtonWrapper>
+
+      <Modal width={'80%'} visible={visible} css={ModalStyle}>
+        <ModalContent>
+          <ModalText>메세지 작성이 완료되었어요!</ModalText>
+          <Button type={'primary'} onClick={onSubmit} style={ModalButtonStyle}>
+            확인
+          </Button>
+        </ModalContent>
+      </Modal>
+
+      <Modal width={'90%'} visible={cancelModalVisible} css={ModalStyle}>
+        <ModalContent>
+          <ModalText>선물을 삭제할까요?</ModalText>
+          <ModalSubText>지금까지 진행한 과정이 모두 사라져요.</ModalSubText>
+          <ButtonContainer>
+            <Button
+              type={'danger'}
+              onClick={onClickDelete}
+              style={ModalButtonStyle}
+            >
+              삭제
+            </Button>
+            <Button
+              type={'secondary'}
+              onClick={onClickCancel}
+              style={ModalButtonStyle}
+            >
+              취소
+            </Button>
+          </ButtonContainer>
+        </ModalContent>
+      </Modal>
     </Background>
   );
 };

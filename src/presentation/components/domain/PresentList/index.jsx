@@ -41,7 +41,7 @@ const PresentList = ({ onClickPresent }) => {
               onClick={() => onClickPresent(presentImage.type)}
             >
               <Image
-                key={presentImage.type}
+                key={index}
                 width={'100%'}
                 height={'100%'}
                 src={presentImage.src}

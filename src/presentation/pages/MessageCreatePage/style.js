@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
+import { css } from '@emotion/react';
 import { FONT, COLOR } from '@styles';
 import { ReactComponent as Error_Icon } from '@assets/icons/error_icon.svg';
-import { css } from '@emotion/react';
 
 const Background = styled.div`
   height: 100%;
@@ -69,7 +69,7 @@ const WarningMessage = styled.div`
 
 const MessageWithIconWrapper = styled.div`
   ${({ theme }) => theme.common.flexCenter};
-  &.warningMsg {
+  &.warning {
     padding-top: 8px;
   }
 `;
@@ -142,11 +142,42 @@ const TextAreaStyle = styled.div`
   margin-top: 8px;
 `;
 
-const ToastStyle = css`
-  top: 70%;
-  left: 10%;
+const ModalStyle = css`
+  border-radius: 8px;
 `;
 
+const ModalContent = styled.div`
+  ${({ theme }) => theme.common.flexCenterColumn};
+`;
+
+const ModalText = styled.div`
+  ${({ theme }) => theme.common.flexCenter};
+  width: 296px;
+  height: 30px;
+  ${FONT.B_20_TITLE};
+  color: ${COLOR.GRAY_900};
+  margin-bottom: 16px;
+`;
+
+const ModalButtonStyle = {
+  width: '100%',
+  height: '48px',
+  borderRadius: '4px',
+};
+
+const ModalSubText = styled.div`
+  margin-top: 8px;
+  margin-bottom: 16px;
+  ${FONT.R_16_BODY}
+  color: ${COLOR.GRAY_700};
+`;
+
+const ButtonContainer = styled.div`
+  width: 100%;
+  height: 104px;
+  ${({ theme }) => theme.common.flexCenterColumn};
+  justify-content: space-between;
+`;
 export {
   Background,
   MessageCreatePageContainer,
@@ -171,5 +202,10 @@ export {
   EditText,
   InputTitleWrapper,
   PrivateMsgText,
-  ToastStyle,
+  ModalStyle,
+  ModalContent,
+  ModalText,
+  ModalButtonStyle,
+  ModalSubText,
+  ButtonContainer,
 };
