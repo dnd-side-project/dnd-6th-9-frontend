@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
-import { css } from '@emotion/react';
 import { FONT, COLOR } from '@styles';
 import { ReactComponent as Error_Icon } from '@assets/icons/error_icon.svg';
+import { css } from '@emotion/react';
 
 const Background = styled.div`
   height: 100%;
@@ -14,6 +14,7 @@ const Background = styled.div`
 const MessageCreatePageContainer = styled.div`
   width: 100%;
 `;
+
 const StepTitle = styled.div`
   display: flex;
   flex-direction: column;
@@ -43,10 +44,10 @@ const TabWrapper = styled.div`
   margin: 16px 0px;
 `;
 
-const buttonStyle = css({
+const buttonStyle = {
   height: '48px',
   width: '100%',
-});
+};
 
 const ButtonWrapper = styled.div`
   ${({ theme }) => theme.common.BottomFixedPosition};
@@ -140,6 +141,12 @@ const ButtonStyle = {
 const TextAreaStyle = styled.div`
   margin-top: 8px;
 `;
+
+const ToastStyle = css`
+  top: 70%;
+  left: 10%;
+`;
+
 export {
   Background,
   MessageCreatePageContainer,
@@ -164,4 +171,5 @@ export {
   EditText,
   InputTitleWrapper,
   PrivateMsgText,
+  ToastStyle,
 };

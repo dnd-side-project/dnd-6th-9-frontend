@@ -8,6 +8,7 @@ import {
   //BackText,
   MessageCreatePageContainer,
   ButtonWrapper,
+  buttonStyle,
 } from './style';
 import MessageCreateStep1 from './MessageCreateStep1';
 import MessageCreateStep2 from './MessageCreateStep2';
@@ -29,13 +30,13 @@ const labels = ['전체', '생일', '기본'];
 
 const MESSAGE_PROGRESS_VALUE = {
   current: 1,
-  totalStep: 3,
+  totalStep: 4,
 };
 
 const MessageCreatePage = () => {
   const [step, setStep] = useState(MESSAGE_PROGRESS_VALUE.current);
   const [formData, setFormData] = useState(new FormData());
-  //const [content, setContent] = useState('');
+  const [errors, setErrors] = useState({});
 
   const onClickDay = (e) => {
     const dDay = e.target.textContent[2]; //D-5
@@ -47,6 +48,7 @@ const MessageCreatePage = () => {
       ...formData,
       ['open-date']: targetDay,
     });
+    setErrors({});
   };
 
   const onClickPresent = (type) => {
@@ -54,6 +56,7 @@ const MessageCreatePage = () => {
       ...formData,
       ['gift-id']: type,
     });
+    setErrors({});
   };
 
   const handleChangeTextArea = (content) => {
@@ -61,6 +64,7 @@ const MessageCreatePage = () => {
       ...formData,
       ['content']: content,
     });
+    setErrors({});
   };
 
   const handleChangeFile = (file) => {
@@ -68,6 +72,7 @@ const MessageCreatePage = () => {
       ...formData,
       ['image-url']: file,
     });
+    setErrors({});
   };
 
   const handleChangeName = (name) => {
@@ -75,6 +80,7 @@ const MessageCreatePage = () => {
       ...formData,
       ['nick-name']: name,
     });
+    setErrors({});
   };
 
   const handleChangePrivate = (checked) => {
@@ -82,6 +88,7 @@ const MessageCreatePage = () => {
       ...formData,
       ['public']: checked,
     });
+    setErrors({});
   };
   const handleNextStep = () => {
     setStep((step) => step + 1);
@@ -97,7 +104,33 @@ const MessageCreatePage = () => {
 
   const handleCreateMessage = (step) => {
     if (step !== MESSAGE_PROGRESS_VALUE.totalStep) {
-      handleNextStep();
+      console.log(formData);
+      switch (step) {
+        case 1:
+          !formData['open-date']
+            ? setErrors({
+                openDate: '날짜를 선택해주세요.',
+              })
+            : handleNextStep();
+          break;
+        case 2:
+          !formData['gift-id']
+            ? setErrors({ gift: '선물을 선택해주세요.' })
+            : handleNextStep();
+          break;
+        case 3: {
+          if (!(formData['nick-name'] && formData['content'])) {
+            setErrors({
+              content: '메세지와 닉네임을 입력해주세요.',
+            });
+          } else {
+            handleNextStep();
+          }
+          break;
+        }
+        default:
+          break;
+      }
     } else {
       createMessage();
     }
@@ -111,11 +144,16 @@ const MessageCreatePage = () => {
             eventDate={Dummy.eventDate}
             createdDate={Dummy.createdDate}
             onClickDay={onClickDay}
+            errors={errors}
           />
         );
       case 2:
         return (
-          <MessageCreateStep2 labels={labels} onClickPresent={onClickPresent} />
+          <MessageCreateStep2
+            labels={labels}
+            onClickPresent={onClickPresent}
+            errors={errors}
+          />
         );
       case 3:
         return (
@@ -124,6 +162,7 @@ const MessageCreatePage = () => {
             handleChangeFile={handleChangeFile}
             handleChangeName={handleChangeName}
             handleChangePrivate={handleChangePrivate}
+            errors={errors}
           />
         );
     }
@@ -135,11 +174,10 @@ const MessageCreatePage = () => {
       <MessageCreatePageContainer>
         {headerSwitch(step)}
       </MessageCreatePageContainer>
-
       <ButtonWrapper>
         <Button
           type={'primary'}
-          style={{ height: '48px', width: '100%' }}
+          style={buttonStyle}
           onClick={() => handleCreateMessage(step)}
         >
           {step !== 3 ? '다음으로' : '작성완료'}

@@ -12,6 +12,7 @@ import {
   Checkbox,
   Image,
   Upload,
+  ToastMessage,
 } from '@components/base';
 import {
   StepTitle,
@@ -30,6 +31,7 @@ import {
   EditText,
   InputTitleWrapper,
   PrivateMsgText,
+  ToastStyle,
 } from './style';
 
 const MessageCreateStep3 = ({
@@ -37,6 +39,7 @@ const MessageCreateStep3 = ({
   handleChangeFile,
   handleChangeName,
   handleChangePrivate,
+  errors,
 }) => {
   const [content, setContent] = useState('');
   const [imageSrc, setimageSrc] = useState(null);
@@ -172,6 +175,13 @@ const MessageCreateStep3 = ({
           비밀메시지를 작성하면 상대방만 메시지를 볼 수 있어요!
         </PrivateMsgText>
       </PrivateMessageInput>
+      {errors.content && (
+        <ToastMessage
+          message={errors.content}
+          duration={1000}
+          css={ToastStyle}
+        ></ToastMessage>
+      )}
     </>
   );
 };
@@ -183,4 +193,5 @@ MessageCreateStep3.propTypes = {
   handleChangeFile: PropTypes.func,
   handleChangePrivate: PropTypes.func,
   handleChangeName: PropTypes.func,
+  errors: PropTypes.object,
 };
