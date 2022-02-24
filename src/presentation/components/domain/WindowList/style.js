@@ -2,6 +2,8 @@ import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import school_middle from '@assets/images/schoolTheme/school_middle.png';
 import { COLOR, FONT } from '@styles';
+import { MAX_WIDTH } from '@utils/constants';
+
 const ThemeMiddle = styled.div`
   width: 100%;
   aspect-ratio: 360/150;
@@ -37,4 +39,55 @@ const DayText = styled.div`
 const badgeStyle = css`
   margin-left: 20%;
 `;
-export { ThemeMiddle, WindowWrapper, TitleContainer, DayText, badgeStyle };
+
+const ImageWrapper = styled.div`
+  cursor: pointer;
+`;
+
+const ModalStyle = css`
+  border-radius: 4px;
+  max-width: ${MAX_WIDTH};
+`;
+
+const ImageStyle = styled.div`
+  position: absolute;
+  bottom: 75%;
+  &.congrats {
+    left: 40%;
+  }
+`;
+
+const ModalContainer = styled.div`
+  ${({ theme }) => theme.common.flexCenterColumn};
+  justify-content: flex-start;
+  padding-top: 45px;
+`;
+const ModalTitle = styled.div`
+  ${FONT.B_20_TITLE}
+  color : ${COLOR.GRAY_900};
+  margin-bottom: 8px;
+`;
+const ModalSubTitle = styled.div`
+  text-align: center;
+  ${FONT.R_16_BODY}
+  color : ${COLOR.GRAY_700};
+`;
+
+const ModalButtonStyle = {
+  marginTop: '16px',
+  height: '48px',
+};
+export {
+  ThemeMiddle,
+  WindowWrapper,
+  TitleContainer,
+  DayText,
+  badgeStyle,
+  ImageWrapper,
+  ModalStyle,
+  ImageStyle,
+  ModalContainer,
+  ModalTitle,
+  ModalSubTitle,
+  ModalButtonStyle,
+};

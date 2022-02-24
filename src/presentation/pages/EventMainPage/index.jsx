@@ -21,6 +21,23 @@ import {
   ButtonStyle,
 } from './style';
 
+const DUMMY_USER = {
+  id: 1,
+  email: 'dummy@example.com',
+  nickname: '김민정',
+  'login-count': 2,
+};
+
+const DUMMY_EVENT = {
+  'event-id': 1,
+  'user-id': 1,
+  theme: 'school',
+  'event-name': 'event name',
+  'd-day-name': 'd-day-name',
+  'event-description': 'event-description',
+  'event-date': '2022-03-01',
+  'created-date': '2022-02-20',
+};
 const DUMMY_DATA = [
   {
     title: '생일',
@@ -47,9 +64,9 @@ const EventMainPage = () => {
       <Header {...HeaderContent} />
       <EventMainContainer>
         <MainTitle>
-          <BoldText>{'김민정'}</BoldText> 님의
+          <BoldText>{DUMMY_USER['nickname']}</BoldText> 님의
           <br />
-          <BoldText>{'이벤트 제목'}</BoldText> 까지
+          <BoldText>{DUMMY_EVENT['event-name']}</BoldText> 까지
           <br />
           <BoldText className="purple">D-{1} </BoldText>
           <BoldText>남았어요!</BoldText>
@@ -70,7 +87,9 @@ const EventMainPage = () => {
         <AnniversaryMainTheme list={DUMMY_DATA} />
         <ButtonWrapper>
           <Button type={'primary'} style={ButtonStyle} onClick={onClickButton}>
-            선물 보내기
+            {DUMMY_EVENT['user-id'] === DUMMY_USER['id']
+              ? '선물 확인하기'
+              : '선물 보내기'}
           </Button>
         </ButtonWrapper>
       </EventMainContainer>
