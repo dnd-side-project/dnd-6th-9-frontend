@@ -97,6 +97,7 @@ const GlobalStyle = css`
     max-width: ${MAX_WIDTH};
     height: 100%;
     margin: 0 auto;
+    position: relative;
   }
   *,
   *:before,
@@ -152,7 +153,6 @@ const GlobalStyle = css`
   ol {
     list-style: none;
   }
-
   a,
   a:hover,
   a:active,
