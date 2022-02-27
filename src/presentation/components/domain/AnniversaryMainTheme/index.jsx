@@ -4,13 +4,13 @@ import { MainThemeContainer, ThemeTop, ThemeBottom } from './style';
 import { WindowList } from '@components/domain';
 
 const Dummy = [
-  { isOpen: true, day: 6 },
-  { isOpen: false, day: 5 },
-  { isOpen: true, day: 4 },
-  { isOpen: true, day: 3, message: 10 },
-  { isOpen: false, day: 2 },
-  { isOpen: true, day: 1 },
-  { isOpen: true, day: 0, message: 10 },
+  { isOpen: false, dDay: 6, message: 0 },
+  { isOpen: false, dDay: 5, message: 5 },
+  { isOpen: false, dDay: 4, message: 0 },
+  { isOpen: false, dDay: 3, message: 10 },
+  { isOpen: false, dDay: 2, message: 5 },
+  { isOpen: false, dDay: 1, message: 0 },
+  { isOpen: false, dDay: 0, message: 10 },
 ];
 
 const AnniversaryMainTheme = () => {
