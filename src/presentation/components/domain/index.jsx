@@ -6,3 +6,4 @@ export { default as AnniversaryCard } from './AnniversaryCard';
 export { default as DefaultPageHeader } from './DefaultPageHeader';
 export { default as AnniversaryMainTheme } from './AnniversaryMainTheme';
 export { default as WindowList } from './WindowList';
+export { default as PresentList } from './PresentList';

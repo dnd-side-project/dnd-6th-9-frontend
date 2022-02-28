@@ -37,24 +37,4 @@ const NavLinkWrapper = styled(NavLink)`
   ${FONT.SB_18_TITLE}
 `;
 
-const ListWrapper = styled.div`
-  width: 95%;
-  margin: 0px auto;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-`;
-
-const EventWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-`;
-
-export {
-  NavLinkContainer,
-  NavLinkWrapper,
-  ListWrapper,
-  EventWrapper,
-  MarginWrapper,
-  SpaceWrapper,
-};
+export { NavLinkContainer, NavLinkWrapper, MarginWrapper, SpaceWrapper };
