@@ -1,13 +1,16 @@
 import React from 'react';
 import { ReactComponent as PURPLE_LOGO } from '@assets/images/logo/logo_purple.svg';
 import { MenuLayer } from '@components/domain';
-import { ReactComponent as SCRAP_ICON_ON } from '@assets/icons/scrap_icon.svg';
-import { ReactComponent as SCRAP_ICON_OFF } from '@assets/icons/scrap_icon_off.svg';
-import popupMsg from '@assets/images/popupMsg.png';
+import scrapIconOn from '@assets/icons/scrap_icon.svg';
+import scrapIconOff from '@assets/icons/scrap_icon_off.svg';
 import shareIcon from '@assets/icons/share_icon.svg';
 import { COLOR } from '@styles';
 
-import { Header, Icon, Button, Image } from '@components/base';
+import {
+  Header,
+  Icon,
+  Button /*ToastMessage,*/,
+} from /*Image,*/ '@components/base';
 import { AnniversaryMainTheme } from '@components/domain';
 
 import {
@@ -17,6 +20,7 @@ import {
   BoldText,
   IconContainer,
   PopupMessage,
+  PopupContent,
   ButtonWrapper,
   ButtonStyle,
 } from './style';
@@ -75,11 +79,18 @@ const EventMainPage = () => {
               src={shareIcon}
               height={24}
               width={24}
-              fill={COLOR.GRAY_500}
+              fill={COLOR.GRAY_900}
             />
-            {DUMMY_DATA.isScrap ? <SCRAP_ICON_ON /> : <SCRAP_ICON_OFF />}
-            <PopupMessage>
-              <Image width={153} height={49} src={popupMsg} />
+            {DUMMY_DATA.isScrap ? (
+              <Icon src={scrapIconOn} fill={COLOR.GRAY_900} />
+            ) : (
+              <Icon src={scrapIconOff} fill={COLOR.GRAY_900} />
+            )}
+            <PopupMessage duration={2500}>
+              <PopupContent className="title">
+                기념일을 저장해보세요!
+              </PopupContent>
+              <PopupContent>이벤트가 끝난 뒤에도 볼 수 있어요</PopupContent>
             </PopupMessage>
           </IconContainer>
         </MainTitle>

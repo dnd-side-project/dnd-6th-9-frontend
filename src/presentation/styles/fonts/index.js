@@ -46,6 +46,7 @@ const FONT_STYLES = {
   R_14_BODY: FONT({ size: 14, weight: 'R', position: 'Body' }),
   M_12_BODY: FONT({ size: 12, weight: 'M', position: 'Body' }),
   R_12_BODY: FONT({ size: 12, weight: 'R', position: 'Body' }),
+  R_10_BODY: FONT({ size: 10, weight: 'R', position: 'Body' }),
 };
 
 export default FONT_STYLES;

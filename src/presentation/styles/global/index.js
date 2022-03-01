@@ -97,7 +97,6 @@ const GlobalStyle = css`
     max-width: ${MAX_WIDTH};
     height: 100%;
     margin: 0 auto;
-    position: relative;
   }
   *,
   *:before,

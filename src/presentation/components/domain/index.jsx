@@ -7,3 +7,4 @@ export { default as DefaultPageHeader } from './DefaultPageHeader';
 export { default as AnniversaryMainTheme } from './AnniversaryMainTheme';
 export { default as WindowList } from './WindowList';
 export { default as PresentList } from './PresentList';
+export { default as ConfettieLottie } from './ConfettieLottie';
