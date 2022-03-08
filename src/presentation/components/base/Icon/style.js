@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-
+import { typeOfSize } from '@utils/conversionsFunc';
 const FILTER = {
   '#1B202C':
     'invert(10%) sepia(31%) saturate(644%) hue-rotate(183deg) brightness(92%) contrast(92%)',
@@ -31,7 +31,7 @@ const FILTER = {
 
 export const IconContainer = styled.img`
   src: ${(props) => props.src};
-  height: ${(props) => props.height};
-  width: ${(props) => props.width};
+  height: ${(props) => typeOfSize(props.height)};
+  width: ${(props) => typeOfSize(props.width)};
   filter: ${(props) => FILTER[props.fill]};
 `;

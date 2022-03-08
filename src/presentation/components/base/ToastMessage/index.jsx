@@ -4,10 +4,10 @@ import { Wrapper } from './style';
 
 const ToastMessage = ({ message, duration, ...props }) => {
   const [isActive, setIsActive] = useState(true);
-  useEffect(() => {
+  const setExistTimeout = useEffect(() => {
     setTimeout(() => {
       setIsActive(false);
-      //clearTimeout(setExistTimeout);
+      clearTimeout(setExistTimeout);
     }, duration ?? 1000);
   });
 

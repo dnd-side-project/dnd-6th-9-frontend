@@ -3,8 +3,16 @@ import PropTypes from 'prop-types';
 import { IconContainer } from './style';
 import { COLOR } from '@styles';
 
-const Icon = ({ src, height, width, fill }) => {
-  return <IconContainer src={src} height={height} width={width} fill={fill} />;
+const Icon = ({ src, height, width, fill, ...rest }) => {
+  return (
+    <IconContainer
+      src={src}
+      height={height}
+      width={width}
+      fill={fill}
+      {...rest}
+    />
+  );
 };
 
 Icon.propTypes = {
