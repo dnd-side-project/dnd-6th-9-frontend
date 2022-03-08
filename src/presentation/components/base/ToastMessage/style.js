@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { COLOR } from '@styles';
 import { css, keyframes } from '@emotion/react';
-
+import { MAX_WIDTH } from '@utils/constants';
 const fadein = keyframes`
   0% { opacity: 0; } 
   100% {  opacity: 1; }
@@ -14,15 +14,11 @@ const fadeout = keyframes`
 const Wrapper = styled.div`
   z-index: 100;
   position: absolute;
-  background-color: ${COLOR.GRAY_900};
-  height: 40px;
+  background-color: ${COLOR.GRAY_800};
   border-radius: 4px;
   text-align: center;
-  line-height: 40px;
-  color: white;
-  width: 80%;
-  max-width: 350px;
-  font-size: 16px;
+  width: 100%;
+  max-width: ${MAX_WIDTH};
   -webkit-animation: ${(props) =>
     props.show
       ? css`
