@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { ConfettieLottie } from '@components/domain';
 import school_window_close from '@assets/images/schoolTheme/school_window_close.png';
 import school_window_open from '@assets/images/schoolTheme/school_window_open.png';
 import school_window_dummy from '@assets/images/schoolTheme/school_window_dummy.png';
@@ -129,6 +130,7 @@ const WindowList = ({ list }) => {
           보러가기
         </Button>
       </Modal>
+      {modalVisible && <ConfettieLottie />}
     </>
   );
 };

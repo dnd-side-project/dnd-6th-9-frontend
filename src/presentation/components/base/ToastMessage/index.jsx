@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Wrapper } from './style';
 
-const ToastMessage = ({ message, duration, ...props }) => {
+const ToastMessage = ({ children, duration, ...props }) => {
   const [isActive, setIsActive] = useState(true);
   const setExistTimeout = useEffect(() => {
     setTimeout(() => {
@@ -15,7 +15,7 @@ const ToastMessage = ({ message, duration, ...props }) => {
     <>
       {
         <Wrapper show={isActive} {...props}>
-          {message}
+          {children}
         </Wrapper>
       }
     </>
@@ -25,6 +25,6 @@ const ToastMessage = ({ message, duration, ...props }) => {
 export default ToastMessage;
 
 ToastMessage.propTypes = {
-  message: PropTypes.string,
+  children: null,
   duration: PropTypes.number,
 };

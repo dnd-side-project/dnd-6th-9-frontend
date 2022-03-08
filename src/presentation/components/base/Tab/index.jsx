@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { useLocation } from 'react-router';
 import {
   NavLinkContainer,
   NavLinkWrapper,
@@ -9,7 +8,6 @@ import {
 } from './style';
 
 const Tab = ({ labels }) => {
-  const location = useLocation();
   const [activeTab, setActiveTab] = useState(0);
 
   const onClickTab = (index) => {
@@ -25,7 +23,7 @@ const Tab = ({ labels }) => {
           <NavLinkWrapper
             key={index}
             className={depth + (index === activeTab ? ' activeTab' : '')}
-            to={`${location.pathname}?key=${label}`}
+            to={`?q=${label}`}
             onClick={() => onClickTab(index)}
           >
             {label}
