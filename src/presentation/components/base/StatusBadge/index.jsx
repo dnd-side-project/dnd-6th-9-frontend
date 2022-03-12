@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Wrapper, Text } from './style';
-const StatusBadge = ({ isProgress }) => {
+const StatusBadge = ({ children, isProgress }) => {
   return (
     <Wrapper className={isProgress ? 'progress' : ''}>
-      <Text>{isProgress ? '진행중' : '종료'}</Text>
+      {children ? children : <Text>{isProgress ? '진행중' : '종료'}</Text>}
     </Wrapper>
   );
 };
@@ -12,5 +12,6 @@ const StatusBadge = ({ isProgress }) => {
 export default StatusBadge;
 
 StatusBadge.propTypes = {
+  children: PropTypes.node,
   isProgress: PropTypes.bool,
 };

@@ -12,6 +12,23 @@ const fadeout = keyframes`
 `;
 
 const Wrapper = styled.div`
+<<<<<<< HEAD
+  z-index: 1000;
+  position: fixed;
+  bottom: 20%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  background-color: ${COLOR.GRAY_900};
+  height: 40px;
+  border-radius: 4px;
+  text-align: center;
+  line-height: 40px;
+  color: white;
+  width: 80%;
+  max-width: 350px;
+  font-size: 16px;
+  pointer-events: none;
+=======
   z-index: 100;
   position: absolute;
   background-color: ${COLOR.GRAY_800};
@@ -19,6 +36,7 @@ const Wrapper = styled.div`
   text-align: center;
   width: 100%;
   max-width: ${MAX_WIDTH};
+>>>>>>> develop
   -webkit-animation: ${(props) =>
     props.show
       ? css`
